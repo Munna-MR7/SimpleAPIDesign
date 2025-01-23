@@ -12,24 +12,26 @@ import java.util.List;
 @Component
 public class EmployeeServiceImplementation implements EmployeeService {
     @Autowired
-    private EmployeeRepo doctorRepo;
+    private EmployeeRepo employeeRepo;
 
     @Override
     public Employee save(EmployeeCreate request) {
-        Employee doctor =new Employee();
-        doctor.setName(request.getName());
-        doctor.setEmail(request.getEmail());
-        return doctorRepo.save(doctor);
+        Employee employee =new Employee();
+        employee.setName(request.getName());
+        employee.setEmail(request.getEmail());
+        return employeeRepo.save(employee);
+    }
+
+
+
+    @Override
+    public List<Employee> getEmployees() {
+        return employeeRepo.findAll();
     }
 
     @Override
-    public List<Employee> getDoctors() {
-        return doctorRepo.findAll();
-    }
-
-    @Override
-    public List<Employee> searchDoctors(String query) {
-        return doctorRepo.findByEmail(query);
+    public List<Employee> searchEmployees(String query) {
+        return employeeRepo.findByEmail(query);
     }
 
 }

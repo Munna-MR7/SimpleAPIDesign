@@ -25,11 +25,11 @@ public class EmployeeController {
     }
     @GetMapping("/employee")
     public ResponseEntity<List<Employee>> getDoctors(){
-        return new ResponseEntity<>(employeeService.getDoctors(),HttpStatus.OK);
+        return new ResponseEntity<>(employeeService.getEmployees(),HttpStatus.OK);
     }
     @GetMapping("/employee/search")
     public ResponseEntity<List<Employee>> search(@RequestParam String query){
-        return new ResponseEntity<>(employeeService.searchDoctors(query), HttpStatus.OK);
+        return new ResponseEntity<>(employeeService.searchEmployees(query), HttpStatus.OK);
     }
 
 }

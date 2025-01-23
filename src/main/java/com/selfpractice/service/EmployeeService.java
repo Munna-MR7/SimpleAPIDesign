@@ -9,7 +9,7 @@ import java.util.List;
 @Component
 public interface EmployeeService {
     Employee save(EmployeeCreate request);
-    List<Employee> getDoctors();
-    List<Employee> searchDoctors(String query);
+    List<Employee> getEmployees();
+    List<Employee> searchEmployees(String query);
 
 }
