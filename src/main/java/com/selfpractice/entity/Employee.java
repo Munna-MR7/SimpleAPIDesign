@@ -4,18 +4,21 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.stereotype.Component;
 
+import javax.persistence.*;
 
-// As it does not create any table so won't use @Entity &@Table annotation
+@Entity
+@Table(name="doctors")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-@Component
-public class DoctorCreate {
+public class Employee {
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private long id;
     private String name;
     private String email;
     private String gender;
     private String designation;
-}
+  }

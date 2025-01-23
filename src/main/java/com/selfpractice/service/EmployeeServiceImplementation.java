@@ -1,7 +1,7 @@
 package com.selfpractice.service;
-import com.selfpractice.entity.Doctor;
-import com.selfpractice.entity.DoctorCreate;
-import com.selfpractice.repo.DoctorRepo;
+import com.selfpractice.entity.Employee;
+import com.selfpractice.entity.EmployeeCreate;
+import com.selfpractice.repo.EmployeeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -10,25 +10,25 @@ import java.util.List;
 
 @Service
 @Component
-public class DoctorServiceImplementation implements DoctorService {
+public class EmployeeServiceImplementation implements EmployeeService {
     @Autowired
-    private DoctorRepo doctorRepo;
+    private EmployeeRepo doctorRepo;
 
     @Override
-    public Doctor save(DoctorCreate request) {
-        Doctor doctor =new Doctor();
+    public Employee save(EmployeeCreate request) {
+        Employee doctor =new Employee();
         doctor.setName(request.getName());
         doctor.setEmail(request.getEmail());
         return doctorRepo.save(doctor);
     }
 
     @Override
-    public List<Doctor> getDoctors() {
+    public List<Employee> getDoctors() {
         return doctorRepo.findAll();
     }
 
     @Override
-    public List<Doctor> searchDoctors(String query) {
+    public List<Employee> searchDoctors(String query) {
         return doctorRepo.findByEmail(query);
     }
 
